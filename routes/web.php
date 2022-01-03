@@ -25,4 +25,10 @@ Route::get('/tentang', function () {
     return view('tentang');
 })->middleware(['guest'])->name('tentang');
 
+/* Route Admin */
+
+Route::get('/petunjuk-penggunaan', function () {
+    return view('petunjuk-penggunaan');
+})->middleware(['auth'])->name('petunjuk-penggunaan');
+
 require __DIR__.'/auth.php';
