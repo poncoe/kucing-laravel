@@ -1,4 +1,20 @@
-<x-guest-layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Icon -->
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/11747628?s=460&v=4" type="image/icon type">
+
+    <!-- Title Web -->
+    <title>Animolz : Register</title>
+
+  </head>
+  <body>
+      
+  <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -57,3 +73,7 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+
+</body>
+</html>
