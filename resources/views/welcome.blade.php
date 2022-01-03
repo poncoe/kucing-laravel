@@ -29,8 +29,12 @@
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
+                        <!-- @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif -->
+
+                        @if (Route::has('tentang'))
+                            <a href="{{ route('tentang') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Tentang Kami</a>
                         @endif
                     @endauth
                 </div>
