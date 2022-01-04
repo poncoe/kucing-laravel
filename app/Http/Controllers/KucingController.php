@@ -39,16 +39,25 @@ class KucingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'url_gambar' => 'required',
+            'url_gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required',
             'deskripsi' => 'required',
             'desc_singkat' => 'required',
         ]);
   
-        JenisKucing::create($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('url_gambar')) {
+            $destinationPath = 'img/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['url_gambar'] = "$profileImage";
+        }
+    
+        JenisKucing::create($input);
    
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing created successfully.');
+                        ->with('success','Data Jenis Kucing berhasil dibuat!.');
     }
    
     /**
@@ -83,16 +92,26 @@ class KucingController extends Controller
     public function update(Request $request, JenisKucing $jeniskucing)
     {
         $request->validate([
-            'url_gambar' => 'required',
             'judul' => 'required',
             'deskripsi' => 'required',
             'desc_singkat' => 'required',
         ]);
   
         $jeniskucing->update($request->all());
+
+        if ($image = $request->file('url_gambar')) {
+            $destinationPath = 'img/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['url_gambar'] = "$profileImage";
+        }else{
+            unset($input['url_gambar']);
+        }
+          
+        $jeniskucing->update($input);
   
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing updated successfully');
+                        ->with('success','Data Jenis Kucing berhasil diperbarui!');
     }
   
     /**
@@ -106,6 +125,6 @@ class KucingController extends Controller
         $jeniskucing->delete();
   
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing deleted successfully');
+                        ->with('success','Data Jenis Kucing berhasil dihapus!');
     }
 }
