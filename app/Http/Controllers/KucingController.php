@@ -97,7 +97,7 @@ class KucingController extends Controller
             'desc_singkat' => 'required',
         ]);
   
-        $jeniskucing->update($request->all());
+        $input = $request->all();
 
         if ($image = $request->file('url_gambar')) {
             $destinationPath = 'img/';
