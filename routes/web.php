@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KucingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/tentang', function () {
     return view('tentang');
 })->middleware(['guest'])->name('tentang');
 
 /* Route Admin */
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/petunjuk-penggunaan', function () {
     return view('petunjuk-penggunaan');
 })->middleware(['auth'])->name('petunjuk-penggunaan');
+
+/* Route CRUD Data Jenis Kucing */
+
+Route::resource('jeniskucing', KucingController::class);
 
 require __DIR__.'/auth.php';
