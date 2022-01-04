@@ -12,14 +12,24 @@ class KucingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $jeniskucing = JenisKucing::latest()->paginate(5);
-  
-        return view('jeniskucing.index',compact('jeniskucing'))
+        // $jeniskucing = JenisKucing::latest()->paginate(5);
+
+        // return view('jeniskucing.index', compact('jeniskucing'))
+        //     ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        $pagination  = 5;
+        $jeniskucing    = JenisKucing::when($request->keyword, function ($query) use ($request) {
+            $query->where('judul', 'like', "%{$request->keyword}%");
+        })->orderBy('created_at', 'desc')->paginate($pagination);
+
+        $jeniskucing->appends($request->only('keyword'));
+
+        return view('jeniskucing.index', compact('jeniskucing'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +39,7 @@ class KucingController extends Controller
     {
         return view('jeniskucing.create');
     }
-  
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,7 +54,7 @@ class KucingController extends Controller
             'deskripsi' => 'required',
             'desc_singkat' => 'required',
         ]);
-  
+
         $input = $request->all();
 
         if ($image = $request->file('url_gambar')) {
@@ -53,13 +63,13 @@ class KucingController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['url_gambar'] = "$profileImage";
         }
-    
+
         JenisKucing::create($input);
-   
+
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing berhasil dibuat!.');
+            ->with('success', 'Data Jenis Kucing berhasil dibuat!.');
     }
-   
+
     /**
      * Display the specified resource.
      *
@@ -68,9 +78,9 @@ class KucingController extends Controller
      */
     public function show(JenisKucing $jeniskucing)
     {
-        return view('jeniskucing.show',compact('jeniskucing'));
+        return view('jeniskucing.show', compact('jeniskucing'));
     }
-   
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,9 +89,9 @@ class KucingController extends Controller
      */
     public function edit(JenisKucing $jeniskucing)
     {
-        return view('jeniskucing.edit',compact('jeniskucing'));
+        return view('jeniskucing.edit', compact('jeniskucing'));
     }
-  
+
     /**
      * Update the specified resource in storage.
      *
@@ -96,7 +106,7 @@ class KucingController extends Controller
             'deskripsi' => 'required',
             'desc_singkat' => 'required',
         ]);
-  
+
         $input = $request->all();
 
         if ($image = $request->file('url_gambar')) {
@@ -104,16 +114,16 @@ class KucingController extends Controller
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['url_gambar'] = "$profileImage";
-        }else{
+        } else {
             unset($input['url_gambar']);
         }
-          
+
         $jeniskucing->update($input);
-  
+
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing berhasil diperbarui!');
+            ->with('success', 'Data Jenis Kucing berhasil diperbarui!');
     }
-  
+
     /**
      * Remove the specified resource from storage.
      *
@@ -123,8 +133,8 @@ class KucingController extends Controller
     public function destroy(JenisKucing $jeniskucing)
     {
         $jeniskucing->delete();
-  
+
         return redirect()->route('jeniskucing.index')
-                        ->with('success','Data Jenis Kucing berhasil dihapus!');
+            ->with('success', 'Data Jenis Kucing berhasil dihapus!');
     }
 }
