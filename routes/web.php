@@ -36,4 +36,8 @@ Route::get('/petunjuk-penggunaan', function () {
 
 Route::resource('jeniskucing', KucingController::class);
 
+Route::get('jenisKucing', function () {
+    return view('jeniskucing.index');
+})->middleware(['auth'])->name('jenisKucing');
+
 require __DIR__.'/auth.php';
