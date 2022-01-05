@@ -18,7 +18,6 @@ class CreateJenisKucingTable extends Migration
             $table->text('url_gambar');
             $table->string('judul');
             $table->text('deskripsi');
-            $table->string('desc_singkat');
             $table->timestamps();
         });
     }

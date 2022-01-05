@@ -13,6 +13,6 @@ class JenisKucing extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'url_gambar', 'judul', 'deskripsi', 'desc_singkat'
+        'url_gambar', 'judul', 'deskripsi'
     ];
 }

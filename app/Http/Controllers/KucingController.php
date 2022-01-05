@@ -74,7 +74,6 @@ class KucingController extends Controller
             'url_gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required',
             'deskripsi' => 'required',
-            'desc_singkat' => 'required',
         ]);
 
         $input = $request->all();
@@ -126,7 +125,6 @@ class KucingController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'desc_singkat' => 'required',
         ]);
 
         $input = $request->all();

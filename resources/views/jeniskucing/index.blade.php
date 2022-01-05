@@ -42,7 +42,6 @@
         <th>Gambar</th>
         <th>Judul</th>
         <th>Deskripsi</th>
-        <th>Deskripsi Singkat</th>
         <th width="280px">Aksi</th>
     </tr>
     @foreach ($jeniskucing as $jenisKucing)
@@ -51,7 +50,6 @@
         <td><img src="/img/{{ $jenisKucing->url_gambar }}" width="100px"></td>
         <td>{{ $jenisKucing->judul }}</td>
         <td>{{ $jenisKucing->deskripsi }}</td>
-        <td>{{ $jenisKucing->desc_singkat }}</td>
         <td>
             <form action="{{ route('jeniskucing.destroy',$jenisKucing->id) }}" method="POST">
 
