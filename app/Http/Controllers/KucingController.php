@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisKucing;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class KucingController extends Controller
 {
+
+    /**
+     * Membuat sebuah fungsi untuk mengaktifkan sessions 
+     * pada halaman Jenis Kucing
+     */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('logout');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +26,16 @@ class KucingController extends Controller
      */
     public function index(Request $request)
     {
+
+        /**
+         * Melakukan Pengecekan Session pada Jenis Kucing
+         */
+
+        $data = $request->session()->has('auth');
+        if ($data) {
+            return view('auth.login');
+        }
+
         // $jeniskucing = JenisKucing::latest()->paginate(5);
 
         // return view('jeniskucing.index', compact('jeniskucing'))
