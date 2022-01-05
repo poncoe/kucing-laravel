@@ -397,7 +397,7 @@
         @endif
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0" style="text-align: center;">
                 <br>
                 <h1 class="display-5 fw-bold">Animolz: Informasi Jenis Kucing</h1>
                 <br>
@@ -405,13 +405,15 @@
 
             <!-- Search Data -->
 
+            <div style="text-align: center;">
             <form action="{{ url()->current() }}" method="get">
                 <div class="form-group w-100 mb-3">
-                    <br><br>
+                    <br>
                     <input type="text" name="keyword" value="{{ request('keyword') }}" class="form-control w-75 d-inline" id="search" placeholder="Cari Judul...">
                     <button type="submit" class="btn btn-primary mb-1">Cari</button>
                 </div>
             </form>
+            </div>
 
             <!-- Artikel -->
             <section id="artikel">
