@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KucingController;
+use App\Http\Controllers\HomeyController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\KucingController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homey.welcome')->name('homey');
 });
 
 Route::get('/tentang', function () {
@@ -32,12 +34,14 @@ Route::get('/petunjuk-penggunaan', function () {
     return view('petunjuk-penggunaan');
 })->middleware(['auth'])->name('petunjuk-penggunaan');
 
-/* Route CRUD Data Jenis Kucing */
+/* Route Restful, View & Guest Data Jenis Kucing */
 
 Route::resource('jeniskucing', KucingController::class);
+Route::resource('homey', HomeyController::class);
 
 Route::get('jenisKucing', function () {
     return view('jeniskucing.index');
 })->middleware(['auth'])->name('jenisKucing');
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
