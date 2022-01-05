@@ -55,8 +55,8 @@
         <td>
             <form action="{{ route('jeniskucing.destroy',$jenisKucing->id) }}" method="POST">
 
-                <a class="btn btn-info" href="{{ route('jeniskucing.show',$jenisKucing->id) }}" title="Show" style="border: none; background-color:transparent;"> <i class="fas fa-eye  fa-lg" style="color:black"></i>
-                </a>
+                <!-- <a class="btn btn-info" href="{{ route('jeniskucing.show',$jenisKucing->id) }}" title="Show" style="border: none; background-color:transparent;"> <i class="fas fa-eye  fa-lg" style="color:black"></i>
+                </a> -->
 
                 <a class="btn btn-primary" href="{{ route('jeniskucing.edit',$jenisKucing->id) }}" title="Edit" style="border: none; background-color:transparent;"> <i class="fas fa-edit  fa-lg" style="color:black"></i>
                 </a>
