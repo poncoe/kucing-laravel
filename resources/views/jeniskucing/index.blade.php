@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
-    <!-- Search Data -->
+        <!-- Search Data -->
 
         <div class="pull-left">
             <form action="{{ url()->current() }}" method="get">
@@ -29,6 +29,11 @@
         </div>
     </div>
 </div>
+
+<br>
+<h6 style="text-align: left;"><b>Catatan</b> : <br><br>Tolong ya dengan hormat jangan diapus yang manicon & berandalan, buat dummy data,
+ sisanya bebas dah. lagipula setiap aktifitas terekam karena login pake google, makasih ya :)</h6>
+<br>
 
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
