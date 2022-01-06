@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KucingController;
 use App\Http\Controllers\HomeyController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -42,6 +43,13 @@ Route::resource('homey', HomeyController::class);
 Route::get('jenisKucing', function () {
     return view('jeniskucing.index');
 })->middleware(['auth'])->name('jenisKucing');
+
+/* Google Auth */
+
+Route::prefix('google')->name('google.')->group( function(){
+    Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
+    Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+});
 
 
 require __DIR__ . '/auth.php';
