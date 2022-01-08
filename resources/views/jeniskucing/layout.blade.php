@@ -26,6 +26,18 @@
             color: white;
             text-align: center;
         }
+
+        .btnfix {
+            transition-duration: 0.4s;
+            color: blue;
+        }
+
+        .btnfix:hover {
+            background-color: blue;
+            color: white;
+            padding: 12px 28px;
+            width: 250px;
+        }
     </style>
 
 </head>
@@ -41,10 +53,10 @@
             <div class="container">
                 @yield('content')
             </div>
-            
+
         </x-slot>
     </x-app-layout>
-    
+
 </body>
 
 </html>
