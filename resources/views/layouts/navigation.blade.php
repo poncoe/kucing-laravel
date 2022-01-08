@@ -19,7 +19,7 @@
 
                 <!-- Jenis Kucing -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link a href="jeniskucing">
+                    <x-nav-link a href="{{ route('jeniskucing.index') }}">
                         {{ __('Jenis Kucing') }}
                     </x-nav-link>
                 </div>
@@ -81,7 +81,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link a href="jeniskucing">
+            <x-responsive-nav-link a href="{{ route('jeniskucing.index') }}">
                 {{ __('Jenis Kucing') }}
             </x-responsive-nav-link>
 
