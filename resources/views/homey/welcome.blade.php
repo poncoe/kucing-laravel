@@ -451,7 +451,7 @@
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
 
-                            <a>Build with ❤ by Animolz © 2022 | Hifdzi, Tiara & Coedotz</a>
+                        <a>Build with ❤ by Animolz © 2022 | Hifdzi, Tiara & Coedotz (<a href="/tentang">Tentang Kami</a>)</a>
                         </div>
                     </div>
 
