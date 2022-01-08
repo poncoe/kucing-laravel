@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('homey.welcome')->name('homey');
+    return redirect()->route('homey.index');
 });
 
 Route::get('/tentang', function () {
