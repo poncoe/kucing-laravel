@@ -108,7 +108,7 @@
             border-top-width: 1px
         }
 
-        
+
 
         .hidden {
             display: none
@@ -406,13 +406,13 @@
             <!-- Search Data -->
 
             <div style="text-align: center;">
-            <form action="{{ url()->current() }}" method="get">
-                <div class="form-group w-100 mb-3">
-                    <br>
-                    <input type="text" name="keyword" value="{{ request('keyword') }}" class="form-control w-75 d-inline" id="search" placeholder="Cari Judul...">
-                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
-                </div>
-            </form>
+                <form action="{{ url()->current() }}" method="get">
+                    <div class="form-group w-100 mb-3">
+                        <br>
+                        <input type="text" name="keyword" value="{{ request('keyword') }}" class="form-control w-75 d-inline" id="search" placeholder="Cari Judul...">
+                        <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                    </div>
+                </form>
             </div>
 
             <!-- Artikel -->
@@ -451,7 +451,10 @@
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
 
-                        <a>Build with ❤ by Animolz © 2022 | Hifdzi, Tiara & Coedotz (<a href="/tentang">Tentang Kami</a>)</a>
+                            {!! $homey->links() !!}
+                            <br><br>
+
+                            <a>Build with ❤ by Animolz © 2022 | Hifdzi, Tiara & Coedotz (<a href="/tentang">Tentang Kami</a>)</a>
                         </div>
                     </div>
 
