@@ -80,7 +80,7 @@
 
             <div class="row">
                 <div class="">
-                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-content" id="nav-tabContent" style="text-align: center;">
                         <div class="">
                         <h1>{{ $homey->judul}}</h1>
                             <br>
