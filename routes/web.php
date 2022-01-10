@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/tentang', function () {
     return view('tentang');
-})->middleware(['guest'])->name('tentang');
+})->name('tentang');
 
 /* Route Admin */
 
