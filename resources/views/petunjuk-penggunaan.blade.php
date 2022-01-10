@@ -23,8 +23,8 @@
     <x-slot name="header">
 
         <!-- PDF -->
-        <object data="DIISI NANTI" type="application/pdf" width="100%" height="800px"> 
-        <p>Yah, karena browser ini tidak dilengkapi plugin, jadi alternatifnya anda bisa <a href="DIISI NANTI">Klik untuk mengunduh petunjuk penggunaan Animolz.</a></p>  
+        <object data="/petunjuk-penggunaan-animolz.pdf" type="application/pdf" width="100%" height="800px"> 
+        <p>Yah, karena browser ini tidak dilengkapi plugin, jadi alternatifnya anda bisa <a href="/petunjuk-penggunaan-animolz.pdf">Klik untuk mengunduh petunjuk penggunaan Animolz.</a></p>  
         </object>
         <!-- PDF -->
 
