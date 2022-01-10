@@ -74,21 +74,22 @@
 
     <br>
     <article>
-        <div>
-        <img src="/img/{{ $homey->url_gambar }}" class="rounded mx-auto d-block" alt="gambar">
+        <div class="text-center">
+            <img src="/img/{{ $homey->url_gambar }}" class="img-thumbnail" alt="gambar">
+        </div>
         <br>
 
-            <div class="row">
-                <div class="">
-                    <div class="tab-content" id="nav-tabContent" style="text-align: center;">
-                        <div class="">
+        <div class="row">
+            <div class="">
+                <div class="tab-content" id="nav-tabContent" style="text-align: center;">
+                    <div class="">
                         <h1>{{ $homey->judul}}</h1>
-                            <br>
-                            <p>{{ $homey->deskripsi}}</p>
-                        </div>
+                        <br>
+                        <p>{{ $homey->deskripsi}}</p>
                     </div>
                 </div>
             </div>
+        </div>
     </article>
     <br><br><br>
     <!-- End Artikel -->
